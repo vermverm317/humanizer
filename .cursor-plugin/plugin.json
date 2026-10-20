@@ -1,0 +1,10 @@
+{
+  "name": "humanizer-ai-tells",
+  "displayName": "Humanizer",
+  "version": "0.1.0",
+  "description": "Free skill that rewrites drafts to remove common AI-writing tells while keeping every fact. Edits text only.",
+  "author": { "name": "W3 Economic Labs" },
+  "license": "MIT",
+  "keywords": ["writing", "editing", "style", "ai-writing", "humanize"],
+  "logo": "assets/logo.svg"
+}
