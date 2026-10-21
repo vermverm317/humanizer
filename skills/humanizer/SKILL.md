@@ -1,21 +1,25 @@
 ---
 name: humanizer
-description: Rewrite a draft to remove common AI-writing tells (puffery, AI vocabulary, negative parallelisms, "serves as", chatbot phrases, format tells) while keeping every fact. Use when the user asks to humanize, de-AI, or clean up the style of text.
+description: Use on any draft (post, email, landing page copy, docs, script) to strip AI-writing tells and make it read like a person wrote it. Returns the revised draft plus a short list of what changed. Never adds facts.
 ---
 # Humanizer
 
-Input: one draft. Output: the revised draft plus a short list of what changed. This skill only edits text; it never posts or sends anything.
+Based on Wikipedia's public guide "Signs of AI writing" (https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
 
-Tell list adapted from Wikipedia's "Signs of AI writing" (CC BY-SA 4.0): https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing
+Input: one draft, plus optional samples of the author's own writing. Output: the revised draft and a short list of what changed. This skill never posts or sends anything.
 
-## Steps
-1. Scan: read the draft once and flag every item from the list below.
-2. Rewrite: fix each flagged item in place. Do not change meaning, facts or numbers.
-3. Voice: if the user gave voice samples or a style guide, match them. Otherwise write plain, direct sentences, lead with the subject, use "you" when explaining.
-4. Read-aloud test: anything that sounds like a press release or a chatbot reply fails.
-5. Report: list the categories of tells removed and confirm every original fact was kept.
+## 1. Steps
 
-## 1. AI-writing tells to remove
+1. **Scan for tells.** Read the draft once and flag every item from Section 2 before changing anything.
+2. **Rewrite.** Fix each flagged item in place: plain verb for copula avoidance, real noun for vague association, cut tacked-on -ing analysis. Do not change meaning or facts.
+3. **Match the voice.** If the user gave writing samples, match their sentence length, word choice and tone (Section 3). Otherwise use the plain default voice.
+4. **Apply the rules.** Check Section 4 top to bottom.
+5. **Read-aloud test.** Any phrase that sounds like a press release or a chatbot reply fails.
+6. **Report.** List the categories of tells removed and confirm every original fact and number was kept.
+
+---
+
+## 2. AI-writing tells to remove
 
 ### Puffery and significance
 - **Watch:** stands/serves as, is a testament to, pivotal/crucial/vital/key role, underscores/highlights its significance, reflects broader, symbolizing enduring, setting the stage for, represents a shift, indelible mark, evolving landscape, focal point
@@ -85,17 +89,39 @@ Tell list adapted from Wikipedia's "Signs of AI writing" (CC BY-SA 4.0): https:/
 
 ### Placeholders
 - **Watch:** [insert name], [add date], [TBD], any fill-in-the-blank phrase
-- **Fix:** fill them in or flag them for the author. Never publish a placeholder.
+- **Fix:** fill them in or flag them to the author. Never publish a placeholder.
 
 ---
 
+---
 
-## 2. Guardrails
-- Style only. Never add claims, quotes, statistics or promises.
-- If something is vague or unverifiable, mark it [CHECK] and leave it unchanged.
-- Return the draft to the user for review.
+## 3. Voice
 
-## 3. Example
-Before: "We're thrilled to announce our groundbreaking app, which serves as a vibrant hub for teams, not just boosting productivity but also fostering collaboration! 🚀"
-After: "Our app is a shared workspace for teams. You can plan, chat and track tasks in one place."
-Changed: cut the announcement opener, "groundbreaking", "serves as", "vibrant", the not-just/but-also parallelism, "fostering" and the emoji.
+- **With samples:** copy the author's habits: how they open, sentence length, words they actually use, how they address the reader. Keep their directness; fix typos and run-ons.
+- **Default voice:** say what the thing is first. Use "you" when explaining. Prefer short sentences and concrete nouns. Skip adjectives that do not add a fact. No hedging for politeness and no hype.
+
+## 4. Rules (override everything)
+
+1. Never invent a quote, fact, statistic or promise. Keep every number and claim exactly as written.
+2. No hype words ("revolutionary", "game-changing", "proven") unless they are in a direct quote.
+3. If anything is vague or unverifiable, mark it [CHECK] and leave it unchanged for the author.
+4. Respect any style rules the user gives (for example, whether em-dashes or fragments are allowed). User rules beat this skill's defaults.
+
+---
+
+## 5. Before / after example
+
+**Before:**
+We're absolutely thrilled to announce the launch of Tidy, a groundbreaking app that serves as a pivotal tool in the evolving landscape of home organization! Tidy boasts a vibrant, intuitive and robust interface, not just helping you declutter but also fostering a calmer lifestyle. Stay tuned for exciting updates! 🚀
+
+**After:**
+Tidy is a home organization app. It helps you declutter. Updates are coming.
+
+**What changed:** cut the "thrilled to announce" opener and the words groundbreaking, pivotal, evolving landscape, boasts, vibrant and robust. Cut the "serves as" copula, the "not just X but also Y" parallelism, the rule-of-three adjectives, the vague "calmer lifestyle" claim and the emoji. No facts were added.
+
+---
+
+## 6. Guardrails
+
+- This pass rewrites style only. It never changes meaning, adds claims or makes promises.
+- Output is a draft for the author to review and send themselves.

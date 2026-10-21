@@ -1,10 +1,10 @@
 {
-  "name": "humanizer-ai-tells",
+  "name": "humanizer",
   "displayName": "Humanizer",
   "version": "0.1.0",
-  "description": "Free skill that rewrites drafts to remove common AI-writing tells while keeping every fact. Edits text only.",
-  "author": { "name": "W3 Economic Labs" },
+  "description": "Free skill that strips common AI-writing tells (puffery, AI vocabulary, negative parallelisms, chatbot phrases, format tells) from a draft and returns a plain, human-sounding revision plus a list of what changed. Never adds facts.",
+  "author": { "name": "Humanizer contributors" },
   "license": "MIT",
-  "keywords": ["writing", "editing", "style", "ai-writing", "humanize"],
+  "keywords": ["writing", "editing", "style", "ai-writing", "copy"],
   "logo": "assets/logo.svg"
 }

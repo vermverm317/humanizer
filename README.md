@@ -1,16 +1,16 @@
 # Humanizer
 
-A free plugin for Cursor and Grok Bot with one skill: it rewrites a draft to strip common AI-writing tells (puffery, AI vocabulary, "serves as", negative parallelisms, chatbot phrases, emoji and format tells) and keeps every fact and number.
+A free Cursor / Grok Bot plugin with one skill: paste a draft, get back a version without the usual AI-writing tells (puffery, "delve"/"pivotal"/"showcasing" vocabulary, "not just X but Y", chatbot phrases, emoji and bold overuse) plus a list of what changed. It never adds facts.
 
-## Usage
-Paste a draft and ask: "Humanize this" or "Remove the AI tells from this." You get the revised draft plus a list of what changed. Anything unverifiable is marked [CHECK].
+## Use
+"Humanize this:" followed by your draft. Optionally paste a few samples of your own writing so it matches your voice.
 
 ## Install
-- Marketplace: once listed, install "Humanizer".
-- Local test: clone this repo and follow https://cursor.com/docs/plugins
+- **Marketplace:** install "Humanizer" once listed.
+- **Local test:** clone this repo and follow https://cursor.com/docs/plugins
 
-## Credits
-Tell list adapted from Wikipedia's "Signs of AI writing" (CC BY-SA 4.0).
+## Source
+Tell list adapted from Wikipedia's "Signs of AI writing" (CC BY-SA).
 
 ## License
-MIT (code and original text). See LICENSE.
+MIT. See LICENSE.
